@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="memberNS">
+	<insert id="insertMember" parameterType="com.jun.member.domain.MemberVO">
+		insert into drcoMember values(#{dc_id}, #{dc_password}, #{dc_name}, #{dc_birth}, #{dc_gender}, #{dc_address}, #{dc_email}, sysdate, default, default, default, default, default)
+	</insert>
+	<delete id="deleteMemberAll">
+		delete drcoMember
+	</delete>
+	<delete id="deleteMemberOne" parameterType="String">
+		delete drcoMember where dc_id = #{dc_id}
+	</delete>
+	<select id="selectMemberOne" resultType="com.jun.member.domain.MemberVO" parameterType="String">
+		select * from drcoMember where dc_id = #{dc_id}
+	</select>
+	<select id="selectMemberAll" resultType="com.jun.member.domain.MemberVO">
+		<![CDATA[
+		select * from drcoMember where dc_grade < 50 order by dc_regDate
+		]]>
+	</select>
+	<select id="selectMemberGender" resultType="com.jun.member.domain.MemberVO" parameterType="com.jun.member.domain.MemberVO">
+		<![CDATA[
+		select * from drcoMember where dc_gender like '%'||#{searchGender}||'%' and dc_grade < 50 order by dc_regDate
+		]]>
+	</select>
+	<select id="selectMemberYear" parameterType="hashMap" resultType="com.jun.member.domain.MemberVO">
+		<![CDATA[
+		select * from (select TRUNC(mem.dc_birth/10000) as bd, mem.* from drcoMember mem) where bd >= #{startYear} and bd <= #{endYear} and dc_grade < 50 order by dc_regDate
+		]]>
+	</select>
+	<select id="cntMember" resultType="int">
+		<![CDATA[
+		select count(*) from drcoMember where dc_grade < 50
+		]]>
+	</select>
+	<update id="updateMyInfo" parameterType="com.jun.member.domain.MemberVO">
+		update drcoMember set dc_password=#{dc_password}, dc_birth=#{dc_birth}, dc_address=#{dc_address}, dc_email=#{dc_email} where dc_id=#{dc_id}
+	</update>
+	<update id="updateMemInfo" parameterType="com.jun.member.domain.MemberVO">
+		update drcoMember set dc_id=#{dc_id}, dc_password=#{dc_password}, dc_name=#{dc_name}, dc_birth=#{dc_birth}, dc_gender=#{dc_gender}, dc_address=#{dc_address}, dc_email=#{dc_email}, dc_grade=#{dc_grade}, dc_state=#{dc_state}, dc_boardCnt=#{dc_boardCnt}, dc_commCnt=#{dc_commCnt}, dc_enterCnt=#{dc_enterCnt} where dc_id=#{dc_id}
+	</update>
+	<update id="updateBoardCnt" parameterType="com.jun.member.domain.MemberVO">
+		update drcoMember set dc_boardCnt=#{dc_boardCnt} where dc_id=#{dc_id}
+	</update>
+	<update id="updateState" parameterType="com.jun.member.domain.MemberVO">
+		update drcoMember set dc_state=3 where dc_id=#{dc_id}
+	</update>
+	
+</mapper>

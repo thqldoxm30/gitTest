@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="boardNS">
+	<insert id="insertBoard">
+		insert into drcoBoard values((select count(*) from drcoboard), #{dc_id}, #{b_title}, #{b_content}, #{b_fileLoad}, sysdate, (select nvl(max(b_list), 0)+1 from drcoboard), default)
+	</insert>
+	<delete id="deleteBoardOne" parameterType="com.jun.board.domain.BoardVO">
+		delete drcoBoard where b_seq = #{b_seq}
+	</delete>
+	<delete id="deleteBoardAll" parameterType="com.jun.member.domain.MemberVO">
+		delete drcoBoard where dc_id = #{dc_id}
+	</delete>
+	<select id="selectBoardOne" resultType="com.jun.board.domain.BoardVO" parameterType="com.jun.board.domain.BoardVO">
+		select * from drcoBoard where b_seq = #{b_seq}
+	</select>
+<!-- 	<select id="selectBoardAll" resultType="com.jun.board.domain.BoardVO" parameterType="com.jun.board.domain.BoardVO">
+		select * from drcoBoard where b_title like '%'||#{searchKeyWord}||'%' order by b_seq
+	</select>
+ -->	
+ 	<select id="cntBoard" resultType="int">
+		select count(*) from drcoBoard
+	</select>
+ 	<select id="cntKeyword" resultType="int" parameterType="com.jun.board.domain.BoardVO">
+		select count(*) from drcoBoard where ${searchCondition} like '%'||#{searchKeyWord}||'%'
+	</select>
+	<update id="updateBoardOne" parameterType="com.jun.board.domain.BoardVO">
+		update drcoBoard set b_title=#{b_title}, b_content=#{b_content}, b_fileLoad=#{b_fileLoad} where b_seq=#{b_seq}
+	</update>
+	<update id="updateCnt" parameterType="com.jun.board.domain.BoardVO">
+		update drcoBoard set b_cnt=#{b_cnt}+1 where b_seq=#{b_seq}
+	</update>
+	<select id="selectAdminBoard" resultType="com.jun.board.domain.BoardVO">
+		select * from drcoBoard
+	</select>
+	<select id="selectBoardAll" parameterType="com.jun.board.domain.BoardVO" resultType="com.jun.board.domain.BoardVO">
+		<![CDATA[
+		select * from (select mBoard.*, ROWNUM as b_row from (select * from drcoboard order by b_seq desc) mBoard) where b_row > #{b_rStart} and b_row <=#{b_rEnd}
+		]]>
+	</select>
+	<select id="keywordSearch" parameterType="com.jun.board.domain.BoardVO" resultType="com.jun.board.domain.BoardVO">
+		<![CDATA[
+		select * from (select mBoard.*, ROWNUM as b_row from (select * from drcoboard where ${searchCondition} like '%'||#{searchKeyWord}||'%' order by b_seq desc) mBoard) where b_row > #{b_rStart} and b_row <=#{b_rEnd}
+		]]>
+	</select>
+<!-- 	<select id="keywordSearch" parameterType="com.jun.board.domain.BoardVO" resultType="com.jun.board.domain.BoardVO">
+		<![CDATA[
+		select * from (select mBoard.*, ROWNUM as b_row from (select * from drcoboard where #{b_title} like '%'||#{searchKeyWord}||'%' order by b_seq desc) mBoard) where b_row > #{b_rStart} and b_row <=#{b_rEnd}
+		]]>
+	</select> -->
+	<select id="cntMemBoard" resultType="int" parameterType="com.jun.board.domain.BoardVO">
+		select count(*) from drcoBoard where dc_id=#{dc_id}	
+	</select>
+</mapper>
