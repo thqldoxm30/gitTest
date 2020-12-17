@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="kr.co.daters.domain.BoMenuVO" alias="boMenu"/>
+		<typeAlias type="kr.co.daters.domain.BoHistoryVO" alias="boHistory"/>
+		<typeAlias type="kr.co.daters.domain.UHistoryVO" alias="uHistory"/>
+		<typeAlias type="kr.co.daters.domain.BoCalcuVO" alias="boCalcu"/>
+		<typeAlias type="kr.co.daters.domain.BoInfoVO" alias="boInfo"/>
+		<typeAlias type="kr.co.daters.domain.BranchOfficeVO" alias="branch"/>
+		<typeAlias type="kr.co.daters.domain.BoUsersVO" alias="bousers"/>
+	</typeAliases>
+</configuration>

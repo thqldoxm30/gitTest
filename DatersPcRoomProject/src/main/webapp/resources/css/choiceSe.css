@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+
+/* 좌석선택 */
+
+.choiceSeatFormDiv{
+	margin: 0 auto;
+	width: 900px;
+	height: 900px;
+	border: solid 1px #777;
+	background-color: white;
+}
+
+.seatForm{
+	width: 700px;
+	position: relative;
+	margin-left: 70px;
+	display: block;
+}
+
+form.here img {
+	height: 40px;
+	width: 60px;
+}
+	
+form {
+	width: 700px;
+	display: block;
+}
+	
+tr {
+	width: 740px;
+	float: left;
+}
+
+td {
+	width: 60px;
+	float: left;
+	text-align: center;
+	margin: 0 10px 10px 0;
+	font-weight: bold;
+}
+	
+input.a {
+	position: relative;
+	top: -35px;
+	left: 0px;
+	display: none;
+}
+
+.inputBtn{
+	width: 300px;
+	margin: 0 auto;
+}

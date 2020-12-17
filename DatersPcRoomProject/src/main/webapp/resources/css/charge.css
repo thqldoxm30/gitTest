@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+/* 시간 충전 */
+
+.chargeFormDiv{
+	margin: 0 auto;
+	width: 650px;
+	height: 500px;
+	border: solid 1px #777;
+	background-color: white;
+}
+.inputBox{
+	margin: 0 auto;
+	padding: 30px;
+	width: 500px;
+	height: 40px;
+}
+
+.inputBox label{
+	font-weight: bold;
+	margin-bottom: 7px;
+}
+
+.inputBox input{
+	display: block;
+	width: 500px;
+	height: 40px;
+}
+
+.inputBox select{
+	display: block;
+	width: 500px;
+	height: 40px;
+}

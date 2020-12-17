@@ -1,0 +1,32 @@
+table {
+	border-collapse: collapse;
+	border: 3px solid black;
+	width: 50%;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+
+td:first-child {
+	width: 120px;
+	background-color: RGB(225, 230, 242);
+}
+
+th {
+	border-bottom: 2px solid black;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+}
+
+td {
+	padding: 5px 0;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	padding-left: 5px;
+	background-color: white;
+}
+
+input {
+	margin: 10px 30px;
+}

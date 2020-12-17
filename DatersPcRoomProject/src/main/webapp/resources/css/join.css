@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+/* 회원가입 */
+
+.userJoinFormDiv{
+	margin: 0 auto;
+	width: 650px;
+	height: 1300px;
+	border: solid 1px #777;
+	background-color: white;
+}
+
+.ownerJoinFormDiv{
+	margin: 0 auto;
+	width: 650px;
+	height: 670px;
+	border: solid 1px #777;
+	background-color: white;
+}
+
+.inputBox{
+	margin: 0 auto;
+	padding: 30px;
+	width: 500px;
+	height: 40px;
+}
+
+.inputBox label{
+	font-weight: bold;
+	margin-bottom: 7px;
+}
+
+.inputBox input{
+	display: block;
+	width: 500px;
+	height: 40px;
+}
+
+.inputBox select{
+	display: block;
+	width: 500px;
+	height: 40px;
+}
+
+/* 라디오버튼 분리 */
+
+.inputBoxRadio{
+	margin: 0 auto;
+	padding-top: 25px;
+	width: 500px;
+	height: 30px;
+}
+
+.inputBoxRadio label{
+	font-weight: bold;
+	margin-bottom: 7px;
+}
+.inputBoxRadio input{
+	width: 20px;
+	height: 20px;
+}
+
+
+/* 라디오버튼 분리 */
+
+.checkBox {
+	float: left;
+	margin: 20px 0;
+}
+
+.register-find{
+	float: right;
+	margin: 20px 0;
+	color : #777;
+}
+
+/* 초기화버튼 */
+
+.resetBtn{
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	margin-top: 15px;
+	width: 500px;
+	height: 40px;
+	border: 1px solid #e64737;
+ 	border-radius: 20px;
+	background-color: #e64737;
+	color: white;
+	font-size: 15px;
+	padding: 5px;
+}
+
+.resetBtn:hover{
+	border: 1px solid #f88074;
+	background-color: #f88074;
+	cursor:pointer;
+}
+
+/* 초기화버튼 */
+
+
+#pwM1, #pwM2, #idM, #emM, #naM, #numM, #brM{
+    font-size: 12px;
+    color: red;
+}

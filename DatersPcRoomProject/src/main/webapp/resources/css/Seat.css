@@ -1,0 +1,30 @@
+form.here img {
+    height: 40px;
+    width: 60px;
+}
+
+form {
+    float: left;
+    width: 1200px;
+    display: block;
+}
+
+tr {
+    width: 792px;
+    float: left;
+}
+
+td {
+    width: 60px;
+    float: left;
+    text-align: center;
+    margin: 0 10px 10px 0;
+    font-weight: bold;
+}
+
+input.a {
+    position: relative;
+    top: -35px;
+    left: 0px;
+    display: none;
+}

@@ -1,0 +1,190 @@
+body {
+    margin: 0 auto;
+}
+
+/* 헤더 */
+div.head {
+    background-color: gray;
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 1000;
+}
+
+div.head>div.headtitle {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+span.title {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    position: relative;
+    top: 15px;
+    left: 20px;
+}
+
+span.title>a {
+    position: relative;
+    top: 5px;
+    left: -5px;
+    color: white;
+    text-decoration: none;
+}
+
+span.title>a>img {
+    position: relative;
+    width: 170px;
+    top: -10px;
+}
+
+span.left {
+    float: right;
+}
+
+span.left>a {
+    font-weight: normal;
+    font-size: 20px;
+    top: 25px;
+    position: relative;
+    margin: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+div.body {
+    background-color: rgba(245, 241, 236, 1);
+    width: 100%;
+    min-height: 653px;
+}
+
+div.headBar {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    top: 100px;
+    border-bottom: 1px solid lightgray;
+}
+
+div.headBar>div.headInBar {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    top: -5px;
+    left: 20px;
+}
+
+/* 헤더 끝*/
+
+/* 컨텐츠 */
+div.content {
+    margin: 0 auto;
+    width: 1000px;
+    margin-top: 100px;
+    padding-left: 20px;
+}
+
+/* 컨텐츠 끝 */
+
+/* 사이드바 */
+div.sideBar {
+    z-index: 100;
+    width: 100px;
+    position: fixed;
+    left: 92%;
+    top: 18.5%;
+    background-color: dimgray;
+}
+
+div.rec {
+    width: 100px;
+    height: 100px;
+    background-color: dimgray;
+    border-bottom: 1px solid white;
+}
+
+div.rec>a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+div.rec>a>div.home {
+    margin: 0 auto;
+}
+
+div.rec>a img {
+    width: 60px;
+    margin-top: 10px;
+}
+
+div.rec>a>div.homeText {
+    margin-top: 5px;
+}
+
+div.rec>a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+div.rec>a>div.card {
+    margin: 0 auto;
+}
+
+div.rec>a>div.card>img {
+    width: 60px;
+    margin-top: 15px;
+}
+
+div.rec>a>div.cardText {
+    margin-top: 5px;
+}
+
+div.rec>a>div.login {
+    margin: 0 auto;
+}
+
+div.rec>a>div.login>img {
+    width: 60px;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+
+div.rec>a>div.loginText {
+    margin-top: 5px;
+}
+
+div.top {
+    width: 100%;
+    height: 30px;
+    top: 3px;
+}
+
+div.top>div {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+div.top>div>a {
+    top: 3px;
+    text-decoration: none;
+    color: white;
+}
+
+div.top img {
+    margin-right: 10px;
+}
+
+/* 사이드바 끝 */
+
+/* 푸터 */
+div.footer {
+    width: 100%;
+    height: 100px;
+    background-color: dimgray;
+}
+
+/* 푸터 끝 */

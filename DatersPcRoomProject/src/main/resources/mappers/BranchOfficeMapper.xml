@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="branchNS">
+	 <resultMap id="BranchResultMap" type="branch">
+    <id column="U_CODE" jdbcType="DECIMAL" property="uCode" />
+    <result column="BO_ADMIN_CHK" jdbcType="DECIMAL" property="boAdminChk"/>
+    <result column="BO_CODE" jdbcType="DECIMAL" property="boCode" />
+    <result column="BO_ID" jdbcType="VARCHAR" property="boId" />
+    <result column="BO_PWD" jdbcType="VARCHAR" property="boPwd" />
+    <result column="BO_NAME" jdbcType="VARCHAR" property="boName" />
+    <result column="BO_USERS" jdbcType="DECIMAL" property="boUsers" />
+    <result column="BO_TOTAL_REVENUE" jdbcType="DECIMAL" property="boTotalRevenue" />
+    <result column="BO_NET_PROFIT" jdbcType="DECIMAL" property="boNetProfit" />
+    <result column="BO_COST" jdbcType="DECIMAL" property="boCost" />
+  </resultMap>
+  
+  <select id="selectBranch" parameterType="String" resultMap="BranchResultMap">
+  	select * from BRANCHOFFICE where BO_ID = #{boId}
+  </select>
+  
+  <select id="selectBranchCode" parameterType="int" resultMap="BranchResultMap">
+  	select * from BRANCHOFFICE where BO_CODE = #{boCode}
+  </select>
+  
+  <insert id="insertBranch" parameterType="branch">
+  	insert into BRANCHOFFICE (BO_CODE, BO_ID, BO_PWD, BO_NAME) values 
+  	((BO_CODE_SEQ.nextval), #{boId}, #{boPwd}, #{boName})
+  </insert>
+  
+  <select id="selectBoCode" resultMap="BranchResultMap">
+  	select * from BRANCHOFFICE where BO_ADMIN_CHK = 2
+  </select>
+  
+  <update id="userCnt" parameterType="branch">
+  	update BRANCHOFFICE SET BO_USERS = #{boUsers} where BO_CODE = #{boCode}
+  </update>
+  
+  <update id="adminTotalUpdate" parameterType="branch">
+  	update BRANCHOFFICE set BO_Total_Revenue = #{boTotalRevenue}, BO_COST=#{boCost}, BO_net_profit=#{boNetProfit} where bo_admin_chk = 1
+  </update>
+  
+  <update id="calcuTotalUpdate" parameterType="int">
+  	update BRANCHOFFICE set BO_Total_Revenue = bo_total_revenue+
+  	((select C_total_time from BO_calcu where bo_code=#{boCode})+
+  	(select C_Total_Other from BO_calcu where bo_code=#{boCode})),
+    BO_COST = BO_cost+(select C_Cost from bo_calcu where bo_code=#{boCode})
+	where bo_code=#{boCode}
+  </update>
+  
+  <update id="netProfitUpdate" parameterType="int">
+  	update branchoffice set BO_net_profit = bo_net_profit+
+  	((select bo_total_revenue from branchoffice where bo_code=#{boCode})-
+  	(select bo_cost from branchoffice where bo_code=#{boCode})) where bo_code=#{boCode}
+  </update>
+  
+  <select id="selectAdmin" resultMap="BranchResultMap">
+  	select * from BRANCHOFFICE where BO_ADMIN_CHK = 1
+ </select>
+  
+</mapper>

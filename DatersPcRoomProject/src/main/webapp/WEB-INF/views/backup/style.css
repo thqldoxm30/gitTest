@@ -1,0 +1,353 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #dddad3;
+}
+
+a{
+	text-decoration:none;
+}
+
+ul{
+	text-align: center;
+}
+
+li{
+	display:inline-block;
+}
+
+
+div.inner-container-main{
+	position: relative;
+	width: 1100px;
+	height: 2500px;
+	margin: 0 auto;
+}
+
+div.inner-container-main .tit{
+	width: 990px;
+	margin: 40px auto;
+}
+
+div.inner-container-main .bodyUl{
+	margin: 10px auto;
+	padding: 0;
+}
+
+div.inner-container-main .bodyUl li{
+	margin-bottom: 50px;
+	box-shadow: 10px 10px 5px grey;
+}
+
+/* 우측 플로팅 메뉴 */
+
+#wrap-wing{
+	position: absolute;
+	width: 90px;
+	height: 350px;
+	right: 0;
+	top: 250px;
+}
+
+/* 로그인 선택 */
+
+#wrap-wing div.login{
+	position: absolute;
+	width: 400px;
+	height: 350px;
+	background-color: white;
+	float: left;
+}
+
+#wrap-wing div.login .choiceBtn{
+	margin: 0 auto;
+	padding: 30px;
+	width: 250px;
+	height: 50px;
+	background-color: white;
+}
+
+.choiceLeft{
+	width: 100px;
+	height: 50px;
+	background-color: white;
+	float: left;
+}
+
+.choiceRight{
+	width: 100px;
+	height: 50px;
+	background-color: white;
+	float: right;
+}
+
+.logBtn{
+	position: relative;
+	display: block;
+	margin: 15px auto;
+	width: 230px;
+	height: 60px;
+	border: 1px solid #34495e;
+ 	border-radius: 20px;
+	background-color: #34495e;
+	color: white;
+	font-size: 15px;
+	padding: 5px;
+}
+
+.regBtn{
+	position: relative;
+	display: block;
+	margin: 15px auto;
+	width: 230px;
+	height: 60px;
+	border: 1px solid #34495e;
+ 	border-radius: 20px;
+	background-color: #34495e;
+	color: white;
+	font-size: 15px;
+	padding: 5px;
+}
+
+
+/* 로그인 선택 */
+
+
+/* 메뉴 버튼 */
+.floatMenu {
+	width: 90px;
+	height: 350px;
+	background-color: #222;
+	color: white;
+	float: right;
+}
+
+.floatMenu a img{
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.floatMenu a span{
+	display: block;
+	bottom: 0;
+	color: white;
+	font-size: 8px;	
+}
+
+/* 메뉴 버튼 */
+
+/* 우측 플로팅 메뉴 */
+
+
+/* 메인 및 기본적용 */
+
+.bg-header{
+	position: relative;
+	top:0;
+	left: 0;
+	display: block;
+	background-color: gray;
+	width: 100%;
+	height: 120px;
+ 	margin: 0 auto;
+    color: blue;
+    overflow: hidden;
+}
+
+.bg-header li{
+	padding-left: 35px;
+}
+
+.contents{
+	margin-bottom: 100px;
+}
+
+.inner-header{
+	width: 1100px;
+	height: 100%;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.logo-header{
+	margin-top: 20px;
+	position: relative;
+	float: left;
+}
+
+.gnb{
+	vertical-align: middle;
+	position: relative;
+	top: 50%;
+  	transform: translateY(-50%);
+	width: 800px;
+	height: 50px;
+	float: right;
+}
+
+.gnb a{
+	color:white;
+	font-size: 18px;
+}
+
+.contents .line-map{
+	width: 100%;
+	height: 50px;
+	border-bottom: solid 1px;
+}
+
+.contents .line-map .inner-line{
+	padding-top: 10px;
+	margin: auto;
+	top: 0;
+	left: 0;
+	width: 1100px;
+	height: 50px;
+	padding: 10;
+}
+
+.inner-container-main{
+	height: 1000px;
+}
+
+.list-wing{
+	padding: 0;
+	margin: 0;
+	width: 90px;
+	height: 330px;
+}
+
+.list-wing li{
+	padding: 0;
+	margin: 0;
+	width: 90px;
+	height: 90px;
+	border-bottom: solid 1px #777;
+}
+
+.list-wing li a{
+	padding: 0;
+	margin: 0;
+	width: 90px;
+	height: 90px;
+}
+
+.btn-top{
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.bg-footer{
+	position: relative;
+	bottom:0;
+	display: block;
+	background-color: gray;
+	width: 100%;
+	height: 100px;
+ 	margin: 0 auto;
+ 	text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+
+.minTitle{
+	position: relative;
+	margin: 20px auto;
+	width: 193px;
+	height: 55px;
+	border-top : solid 2px black;
+	border-bottom : solid 2px black;
+	text-align: center;
+}
+
+.minTitle h1{
+	margin-top: 5px;
+	font-size: 36px;
+}
+
+.formTitle{
+	position: relative;
+	margin: 20px auto;
+	width: 350px;
+	height: 42px;
+	border-top : solid 2px black;
+	border-bottom : solid 2px black;
+	text-align: center;
+}
+
+.formTitle h2{
+	margin-top: 6px;
+	font-size: 24px;
+}
+
+/* 충전 */
+
+.chargeFormDiv{
+	margin: auto;
+	width: 750px;
+	height: 966px;
+	border: solid 1px #777;
+}
+
+.inner-container-charge{
+	padding-bottom: 100px;
+}
+
+table {
+    width: 100%;
+}
+table, th, td {
+    border: 1px solid #bcbcbc;
+}
+
+
+
+/* 버튼 css 통일 */
+
+.subBtn{
+	position: relative;
+	display: block;
+	margin: 10px auto;
+	width: 500px;
+	height: 40px;
+	border: 1px solid #34495e;
+ 	border-radius: 20px;
+	background-color: #34495e;
+	color: white;
+	font-size: 15px;
+	padding: 5px;
+}
+
+.subBtn:hover{
+	border: 1px solid #34495e;
+	background-color: #4f6881;
+	cursor:pointer;
+}
+
+.canBtn{
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 500px;
+	height: 40px;
+	border: 1px solid #dadada;
+	border-radius: 20px;
+	background-color: #dadada;
+	color: #222;
+	font-size: 15px;
+	padding: 5px;
+}
+
+.canBtn:hover{
+	border: 1px solid #eaeaea;
+	background-color: #eaeaea;
+	cursor:pointer;
+}
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boUsersNS">
+  <resultMap id="BaseResultMap" type="bousers">
+    <id column="U_CODE" jdbcType="DECIMAL" property="uCode" />
+    <result column="BO_CODE" jdbcType="DECIMAL" property="boCode" />
+    <result column="U_ID" jdbcType="VARCHAR" property="uId" />
+    <result column="U_PWD" jdbcType="VARCHAR" property="uPwd" />
+    <result column="U_NAME" jdbcType="VARCHAR" property="uName" />
+    <result column="U_BIRTH" jdbcType="DECIMAL" property="uBirth" />
+    <result column="U_EMAIL" jdbcType="VARCHAR" property="uEmail" />
+    <result column="U_GENDER" jdbcType="VARCHAR" property="uGender"/>
+    <result column="U_PHONE" jdbcType="DECIMAL" property="uPhone" />
+    <result column="U_ADDRESS" jdbcType="VARCHAR" property="uAddress" />
+    <result column="U_ALL_TIME" jdbcType="DECIMAL" property="uAllTime" />
+    <result column="U_SAVETIME" jdbcType="DECIMAL" property="uSavetime" />
+    <result column="U_POINT" jdbcType="DECIMAL" property="uPoint" />
+    <result column="U_STATE" jdbcType="DECIMAL" property="uState" />
+    <result column="U_REGDATE" jdbcType="DATE" property="uRegdate"/>
+    <result column="U_USE_BO_CODE" jdbcType="DECIMAL" property="uUseBoCode" />
+    <result column="U_USE_SEAT" jdbcType="DECIMAL" property="uUseSeat" />
+  </resultMap>
+  
+  <select id="selectOneUser" parameterType="String" resultMap="BaseResultMap">
+  	select * from bo_users where U_ID = #{uId}
+  </select>
+  
+  <select id="selectAlluser" parameterType="int" resultMap="BaseResultMap">
+  	select * from bo_users where BO_CODE = #{boCode}
+  </select>
+  
+  <insert id="insertUser" parameterType="bousers">
+    insert into BO_USERS (BO_CODE, U_CODE, U_ID, U_PWD, U_NAME, U_BIRTH, U_GENDER, U_EMAIL, U_PHONE, U_ADDRESS) values (#{boCode}, (U_CODE_SEQ.nextval), #{uId}, 
+      #{uPwd}, #{uName}, #{uBirth}, #{uGender}, #{uEmail}, #{uPhone}, #{uAddress})
+  </insert>
+  
+  <update id="useTime" parameterType="bousers">
+  	update bo_users SET U_SAVETIME = #{uSavetime} where U_ID = #{uId}
+  </update>
+  
+  <update id="insertTime" parameterType="bousers">
+  	update bo_users SET U_POINT = #{uPoint}, U_ALL_TIME = #{uAllTime}, U_SAVETIME = #{uSavetime} where U_CODE = #{uCode}
+  </update>
+  
+  <update id="updateUser" parameterType="bousers">
+  	update BO_USERS set U_PWD = #{uPwd}, U_NAME = #{uName}, U_BIRTH = #{uBirth}, U_GENDER = #{uGender}, U_EMAIL = #{uEmail}, U_PHONE = #{uPhone}, U_ADDRESS = #{uAddress}, U_STATE=#{uState} where U_CODE = #{uCode}
+  </update>
+  
+  <update id="updateSeatUser" parameterType="bousers">
+  	update BO_USERS set U_USE_SEAT = #{uUseSeat}, U_USE_BO_CODE = #{uUseBoCode} where U_CODE = #{uCode}
+  </update>
+  
+  <select id="usingSeat" resultMap="BaseResultMap" parameterType="int">
+  	select u_use_seat from bo_users where u_use_bo_code = #{uUseBoCode}
+  </select>
+
+</mapper>

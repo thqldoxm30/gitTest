@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boCalcuNS">
+	 <resultMap id="BranchResultMap" type="boCalcu">
+    <id column="BO_CODE" jdbcType="DECIMAL" property="boCode" />
+    <result column="C_Today" jdbcType="DATE" property="cToday" />
+    <result column="C_TOTAL_TIME" jdbcType="DECIMAL" property="cTotalTime" />
+    <result column="C_TOTAL_OTHER" jdbcType="DECIMAL" property="cTotalOther" />
+    <result column="C_NET_PROFIT" jdbcType="DECIMAL" property="cNetProfit" />
+    <result column="C_COST" jdbcType="DECIMAL" property="cCost" />
+    <result column="C_COST_INFO" jdbcType="VARCHAR" property="cCostInfo" />
+    <result column="C_INSEN" jdbcType="DECIMAL" property="cInsen" />
+  </resultMap>
+  
+  
+  
+	<insert id="defaultCalcu" parameterType="boCalcu">
+		insert into BO_CALCU (BO_CODE, C_COST_INFO) VALUES (#{boCode}, #{cCostInfo})
+	</insert>
+	
+	<update id="updateCalcu" parameterType="boCalcu">
+		update BO_CALCU SET C_Today=default, C_TOTAL_TIME=#{cTotalTime}, C_TOTAL_OTHER=#{cTotalOther}, 
+		C_NET_PROFIT=#{cNetProfit}, C_COST=#{cCost}, C_COST_INFO = #{cCostInfo}, C_INSEN=#{cInsen} where BO_CODE = #{boCode}
+	</update>
+	
+	<update id="destroyCalcu" parameterType="boCalcu">
+	update BO_CALCU SET C_TOTAL_TIME=#{cTotalTime}, C_TOTAL_OTHER=#{cTotalOther}, 
+		C_NET_PROFIT=#{cNetProfit}, C_COST=#{cCost}, C_COST_INFO = #{cCostInfo}, C_INSEN=#{cInsen}
+	</update>
+	
+	<select id="selectCalcuInfo" parameterType="int" resultMap="BranchResultMap">
+		select * from BO_CALCU where BO_CODE = #{boCode}
+	</select>
+	
+</mapper>

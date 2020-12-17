@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/* 지점선택 */
+.choiceBoFormDiv{
+	margin: 0 auto;
+	width: 560px;
+	height:500px;
+	border: solid 1px #777;
+	text-align: center;
+	background-color: white;
+}
+
+.choiceBoFormDiv .boSelect{
+	margin: 10px auto;
+	width: 500px;
+	height: 100px; 
+	padding-top: 50px;
+	border-top : solid 2px black;
+	border-bottom : solid 2px black;
+}
+
+.choiceBoFormDiv .boSelect select{
+	display: block;
+	width: 500px;
+	height: 40px;
+}
+
+
+
+.checkBox {
+	float: left;
+	margin: 20px 0;
+}
+
+.register-find{
+	float: right;
+	margin: 20px 0;
+	color : #777;
+}
+
+.SubBtn{
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 500px;
+	height: 40px;
+}

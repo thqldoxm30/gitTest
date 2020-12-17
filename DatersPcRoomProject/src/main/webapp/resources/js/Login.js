@@ -1,0 +1,10 @@
+$(document).ready(function(){
+        $('div.left').click(function(){
+            $('div.userLog').show();
+            $('div.ownerLog').hide();
+        });
+        $('div.right').click(function(){
+            $('div.ownerLog').show();
+            $('div.userLog').hide();
+        });
+    });

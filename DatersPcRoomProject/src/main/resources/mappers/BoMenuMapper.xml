@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boMenuNS">
+	 <resultMap id="BranchResultMap" type="boMenu">
+    <id column="BO_CODE" jdbcType="DECIMAL" property="boCode" />
+    <result column="M_NO" jdbcType="DECIMAL" property="mNo" />
+    <result column="M_NAME" jdbcType="VARCHAR" property="mName" />
+    <result column="M_PRICE" jdbcType="DECIMAL" property="mPrice" />
+    <result column="M_QUANTITY" jdbcType="DECIMAL" property="mQuantity" />
+  </resultMap>
+  
+  <select id="selectMenu" resultMap="BranchResultMap" parameterType="int">
+  	select * from BO_MENU where BO_CODE = #{boCode}
+  </select>
+  
+  <select id="choiceMenuInfo" resultMap="BranchResultMap" parameterType="int" >
+  	select * from BO_MENU where M_NO = #{mNo}
+  </select>
+  
+  <update id="updateQuantity" parameterType="int">
+  	update BO_MENU SET M_QUANTITY = M_QUANTITY - 1 where M_NO = #{mNo}
+  </update>
+	
+</mapper>

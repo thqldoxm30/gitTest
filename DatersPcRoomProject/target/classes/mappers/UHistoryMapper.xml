@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="uHistoryNS">
+	 <resultMap id="BranchResultMap" type="uHistory">
+    <id column="U_CODE" jdbcType="DECIMAL" property="uCode" />
+    <result column="BO_CODE" jdbcType="DECIMAL" property="boCode" />
+    <result column="U_TODAY" jdbcType="DATE" property="uToday" />
+    <result column="U_USE_TIME" jdbcType="DECIMAL" property="uUseTime" />
+    <result column="U_USE_TIME_PAY" jdbcType="DECIMAL" property="uUseTimePay" />
+    <result column="U_USE_OTHER_PAY" jdbcType="DECIMAL" property="uUseOtherPay"/>
+    <result column="U_USE_INFO" jdbcType="VARCHAR" property="uUseInfo" />
+    <result column="U_NOWSEAT" jdbcType="DECIMAL" property="uNowseat" />
+  </resultMap>
+  
+  <insert id="usersHistory" parameterType="uHistory">
+  	insert into U_HISTORY VALUES (#{uCode}, #{boCode}, default, #{uUseTime}, #{uUseTimePay}, #{uUseOtherPay}, #{uUseInfo}, #{uNowseat})
+  </insert>
+  
+  <select id="usersHistorySelectAll" resultMap="BranchResultMap" parameterType="int">
+  	select * from U_HISTORY where BO_CODE = #{boCode}
+  </select>
+
+</mapper>

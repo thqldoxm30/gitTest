@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boInfoNS">
+
+  <resultMap id="BaseResultMap" type="boInfo">
+    <id column="U_CODE" jdbcType="DECIMAL" property="uCode" />
+    <result column="BO_CODE" jdbcType="DECIMAL" property="boCode" />
+    <result column="BO_ORDER_NAME" jdbcType="VARCHAR" property="boOrderName" />
+    <result column="BO_ORDER_GENDER" jdbcType="VARCHAR" property="boOrderGender"/>
+    <result column="BO_OPENDATE" jdbcType="DATE" property="boOpendate" />
+    <result column="BO_INTRO" jdbcType="VARCHAR" property="boIntro" />
+    <result column="BO_TOTALSEAT" jdbcType="DECIMAL" property="boTotalseat" />
+    <result column="BO_ADDRESS" jdbcType="VARCHAR" property="boAddress" />
+    <result column="BO_TELL" jdbcType="VARCHAR" property="boTell" />
+    <result column="BO_PRINTER" jdbcType="DECIMAL" property="boPrinter" />
+  </resultMap>
+   
+	<insert id="insertBoInfo" parameterType="boInfo">
+		insert into
+		BO_INFO (BO_CODE, BO_ORDER_NAME, BO_ORDER_GENDER, BO_INTRO, BO_TOTALSEAT, BO_ADDRESS, BO_TELL, BO_PRINTER) values
+		(#{boCode}, #{boOrderName}, #{boOrderGender}, #{boIntro}, #{boTotalseat}, #{boAddress}, #{boTell}, #{boPrinter})
+	</insert>
+
+	<select id="selectOneBoInfo" parameterType="int"
+		resultMap="BaseResultMap">
+		select * from BO_INFO where BO_CODE = #{boCode}
+	</select>
+
+	<update id="ownerUpdate" parameterType="boInfo">
+		update BO_INFO SET BO_ORDER_NAME = #{boOrderName}, BO_ORDER_GENDER = #{boOrderGender}, BO_INTRO=#{boIntro}, BO_TOTALSEAT=#{boTotalseat},
+		 BO_ADDRESS=#{boAddress}, BO_TELL=#{boTell}, BO_PRINTER=#{boPrinter} where BO_CODE = #{boCode}
+	</update>
+
+</mapper>
